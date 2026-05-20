@@ -1,0 +1,4 @@
+node_modules/
+.next/
+public/stage1-results/
+public/stage2-state.json
