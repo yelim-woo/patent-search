@@ -497,14 +497,12 @@ function ResultView({
 }) {
   const today = new Date().toISOString().slice(0, 10);
   const rows = flattenTaxonomy(data.taxonomy);
-  const totalHits = data.taxonomy.reduce((s, b) => s + (b.estimatedHits || 0), 0);
-
   return (
     <>
       <div className="result-mini-header">
         <h1 className="result-mini-title">{data.category}</h1>
         <div className="result-mini-meta">
-          생성일 {today} · 소분류 <strong>{rows.length}</strong>개 · 예상 <strong>~{totalHits.toLocaleString()}</strong>건
+          생성일 {today} · 소분류 <strong>{rows.length}</strong>개
           {modifiedNodeIds.size > 0 && (
             <span className="modified-pill" style={{ marginLeft: 10 }}>
               ✏ 수정 {modifiedNodeIds.size}개
@@ -537,7 +535,6 @@ function ResultView({
                   <th style={{ width: "16%" }}>대분류</th>
                   <th style={{ width: "18%" }}>중분류</th>
                   <th>소분류</th>
-                  <th style={{ width: "12%", textAlign: "right" }}>예상 건수</th>
                   <th style={{ width: "44px" }} aria-label="열기"></th>
                 </tr>
               </thead>
@@ -570,7 +567,6 @@ function ResultView({
                         </div>
                         <div className="cell-scope">{r.small.scope}</div>
                       </td>
-                      <td className="cell-hits">~{r.small.estimatedHits.toLocaleString()}건</td>
                       <td className="cell-arrow" aria-hidden="true">›</td>
                     </tr>
                   );

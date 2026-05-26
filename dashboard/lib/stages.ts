@@ -36,6 +36,19 @@ export const STAGES: Stage[] = [
     },
     implemented: true,
   },
+  {
+    num: 3,
+    slug: "stage3",
+    title: "정성분석 보고서",
+    href: "/stage3",
+    eyebrow: "STAGE 3 · Qualitative Analysis Report",
+    lead: "요약·해결과제·해결수단 텍스트를 분석하여 기술흐름도와 O/S Matrix가 포함된 HWPX 보고서를 자동 생성합니다.",
+    roles: {
+      ai: "🤖 AI: 기술 주제 분류, O/S 카테고리 정의, 차트 생성, HWPX 조립",
+      user: "👤 사용자: 엑셀 데이터 준비, 폴더 경로 지정, 카테고리 검증",
+    },
+    implemented: true,
+  },
 ];
 
 export function getStageBySlug(slug: string): Stage | undefined {
